@@ -24,14 +24,17 @@ public class OuterOne {
 	}
 	
 	public void outerDisplay() {
-		System.out.println("outerNum = "+outerNum);
+	System.out.println("outerNum = "+outerNum);
 		
 		//외부클래스에서는 객체 내부클래스의 필드 또는 메소드에 대한 직접적인 참조 불가능
 		//System.out.println("innerNum = "+innerNum);
 		//innerDisplay();
 		
-		//외부클래스에서는 객체 내부클래스로 객체를 생성하여 접근제한자에 상관없이 객체 내부클래스의
-		//필드 또는 메소드 접근 참조 가능
+		//외부클래스는 객체 내부클래스로 객체를 생성하여 접근제한자에 상관없이 객체 내부클래스의
+		//필드 또는 메소드 참조 가능
+		//InnerOne innerOne=new InnerOne(200);
+		//System.out.println("innerNum = "+innerOne.innerNum);
+		//innerOne.innerDisplay();
 	}
 	
 	//객체 내부클래스 => 컴파일 결과를 [외부클래스$내부클래스.class]파일로 제공

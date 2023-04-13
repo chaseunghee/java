@@ -7,7 +7,7 @@ public enum Compass {
 	//EAST, WEST, SOUTH, NORTH;
 	//매개변수가 있는 생성자를 이용하여 상수필드를 생성하여 초기값 저장
 	EAST("동"), WEST("서"), SOUTH("남"), NORTH("북");
-
+	
 	//상수필드의 자료형 또는 저장값을 변경하기 위한 필드 선언
 	//=>private final 제한자를 사용하여 필드 선언
 	//=> 필드에 저장된 값을 변경하기 위해 반드시 매개변수가 있는 생성자 선언
@@ -18,6 +18,7 @@ public enum Compass {
 	//=> 상수필드의 자료형 또는 저장값을 변경하기 위한 필드에 매개변수의 값 저장
 	//=> 반드시 생성자는 은닉화 선언
 	//생성자를 선언하면 매개변수가 없는 기본 생성자는 미제공
+	
 	private Compass(String value) {
 		// TODO Auto-generated constructor stub
 		this.value=value;
@@ -28,4 +29,5 @@ public enum Compass {
 	public String getValue() {
 		return value;
 	}
+	
 }

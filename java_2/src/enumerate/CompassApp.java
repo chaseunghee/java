@@ -8,6 +8,7 @@ public class CompassApp {
 		System.out.println("남쪽 = "+Compass.SOUTH);
 		System.out.println("북쪽 = "+Compass.NORTH);
 		System.out.println("==============================================================");
+		
 		System.out.println("동쪽 = "+Compass.EAST.getValue());
 		System.out.println("서쪽 = "+Compass.WEST.getValue());
 		System.out.println("남쪽 = "+Compass.SOUTH.getValue());
@@ -18,6 +19,7 @@ public class CompassApp {
 			//EnumType.ordinal() : 상수필드를 구분하기 위한 첨자(Index)를 반환하는 메소드
 			System.out.println(compass+" = "+compass.getValue()+" >> "+compass.ordinal());
 		}
+		
 		System.out.println("==============================================================");
 	}
 }
