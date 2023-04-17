@@ -26,6 +26,43 @@ public class WrapperApp {
 	Integer num1=100, num2=200;
 	Integer num3=num1+num2;
 	System.out.println("num3 = "+(num1+num2));
+	System.out.println("==========================================================================");
+	
+	//Integer.valueOf(String s, int radix) : 매개변수로 전달받은 값으로 원하는 진수의 문자열을 정수값으로 
+	//										변환하여 Integer 객체로 반환하는 메소드
+	//=> 매개변수로 진수가 전달되지 않을 경우 문자열을 10진수로 처리하여 반환
+	//=> 정수값으로 변환되지 못하는 문자열이 전달된 경우 NumberFormatException 발생
+	Integer num=Integer.valueOf("Abc",16); //int num=0xABC;
+	//Inger객체에 저장된 정수값을 반환받아 10진수로 출력
+	System.out.println("num = "+num);
+	System.out.println("==========================================================================");
+	
+	Integer su=50;
+    System.out.println("su(10진수) = "+su);
+    //Integer.toOctalString(int i): 매개변수로 전달된 정수값을 8진수 형태의 문자열로 변환하여 반환하는 메소드
+    System.out.println("su(8진수) = "+Integer.toOctalString(su));
+    //Integer.toHexString(int i): 매개변수로 전달된 정수값을 16진수 형태의 문자열로 변환하여 반환하는 메소드
+    System.out.println("su(16진수) = "+Integer.toHexString(su));
+    //Integer.toBinaryString(int i): 매개변수로 전달된 정수값을 2진수 형태의 문자열로 변환하여 반환하는 메소드
+    System.out.println("su(2진수) = "+Integer.toBinaryString(su));
+	System.out.println("==========================================================================");
+
+	su=-50;
+    System.out.println("su(2진수) = "+Integer.toBinaryString(su));
+	System.out.println("==========================================================================");
+
+	String str1="100", str2="200"; //문자열 결합
+	System.out.println("합계 = "+(str1+str2));
+	System.out.println("==========================================================================");
+
+	//Integer.parseInt(String s) : 매개변수로 문자열을 전달받아 정수값으로 변환하여 반환하는 메소드
+	//=> 정수값으로 변환되지 못하는 문자열이 전달된 경우 NumberFormatException 발생
+	System.out.println("합계 = "+(Integer.parseInt(str2)+Integer.parseInt(str2)));
+	System.out.println("==========================================================================");
+
+	
+
+	
 	}
 	
 }
