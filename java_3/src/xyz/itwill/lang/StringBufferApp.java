@@ -48,9 +48,10 @@ public class StringBufferApp {
 		System.out.println("Sb = "+sb); //ABDX
 		System.out.println("==========================================================================");
 
-		//
+		//StringBuffer.reverse() : StringBuffer 객체에 저장된 문자열의 문자를 역순으로 
+		//나열되도록 저장하는 메소드
 		sb.reverse();
-		System.out.println("Sb = "+sb); //XDBA
+		System.out.println("sb = "+sb);//XDBA
 		System.out.println("==========================================================================");
 
 	}
