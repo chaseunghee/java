@@ -1,9 +1,9 @@
 package xyz.itwill.lang.thread;
 
-public class MultiThreadOne extends Thread {
+public class MultiThreadTwo implements Runnable {
 	@Override
 	public void run() {
-		for(char i='a';i<='z';i++) {
+		for(char i='0';i<='9';i++) {
 			System.out.print(i);
 			try {
 				Thread.sleep(500);
