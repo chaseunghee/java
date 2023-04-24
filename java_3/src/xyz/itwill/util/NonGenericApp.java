@@ -23,6 +23,7 @@ public class NonGenericApp {
 		
 		//명시적 객체 형변환을 잘못된 경우 ClassCastException 발생
 		// => instanceof 연산자를 사용하여 명시적 객체 형변환 전에 자식클래스에 대한 검증
+		
 		if(nonGeneric2.getField() instanceof Double) {
 			//Integer returnObject2=(Integer)nonGeneric2.getField();
 			Double returnObject2=(Double)nonGeneric2.getField();
