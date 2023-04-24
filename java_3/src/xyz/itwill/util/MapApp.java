@@ -30,8 +30,7 @@ public class MapApp {
 		map.put("2000", "임걱정");
 		System.out.println("map = "+map);
 		System.out.println("===============================================================");
-		//Map.remove(K key) : Map 객체에 저장된 엔트리에서 매개변수로 전달받은 이름(Key)에
-		//대한 엔트리를 검색하여 삭제하는 메소드
+		//
 		map.remove("4000");
 		System.out.println("map = "+map);
 		System.out.println("===============================================================");
