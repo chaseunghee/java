@@ -31,7 +31,7 @@ public class CharacterStreamApp {
 		int readByte;
 		
 		while(true) {
-			//Reader.rear() : 입력스트림에 존재하는 값을 문자데이터(2Byte)로 읽어 정수값(int)으로 반환하는 메소드
+			//Reader.read() : 입력스트림에 존재하는 값을 문자데이터(2Byte)로 읽어 정수값(int)으로 반환하는 메소드
 			readByte=in.read();
 			
 			if(readByte==-1) break;
@@ -40,7 +40,8 @@ public class CharacterStreamApp {
 			//=> 문자데이터는 출력스트림에 존재하는 버퍼(Buffer=임시메모리)에 일정한 크기만큼 저장하고 
 			///	 한번에 출력스트림으로 전달하여 출력 처리
 			out.write(readByte);
-			
+			//System.out.println(readByte);
+
 			//Writer.flush() : 출력버퍼에 존재하는 모든 값을 출력스트림을 전달하는 메소드
 			out.flush();
 		}

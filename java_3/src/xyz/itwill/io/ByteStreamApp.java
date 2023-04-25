@@ -40,6 +40,8 @@ public class ByteStreamApp {
 			//=> 출력스트림에 값을 전달하면 모니터 출력 처리
 			//=> 필드의 자료형 PrintStream(부모는 OutputStream)
 			//OutputStream.write(int b) : 매개변수로 제공받은 값을 원시데이터(1Byte)로 출력스트림에 전달하는 메소드
+			
+			
 			System.out.write(readByte);
 		
 		}
