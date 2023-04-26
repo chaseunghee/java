@@ -7,7 +7,7 @@ import java.io.IOException;
 //파일에 저장된 값을 원시데이터로 제공받아 모니터에 전달하여 출력하는 프로그램 작성
 public class FileInputStreamApp {
 	public static void main(String[] args) throws IOException {
-		//FileOutputStream 클래스 : 파일에 저장된 값을 원시데이터로 제공받기 위한 입력스트림
+		//FileIutputStream 클래스 : 파일에 저장된 값을 원시데이터로 제공받기 위한 입력스트림
 		FileInputStream in =null;
 		try {
 			//FileInputStream 클래스의 FileInputStream(String name) 생성자를 이용하여 매개변수로 파일경로를
@@ -24,7 +24,7 @@ public class FileInputStreamApp {
 		int readByte;
 		
 		while(true) {
-			//파일 입력스트림을 이용하여 파일에 저장된 값을 원시데이터로 반환받아 저장
+			//파일 입력스트림을 이용하여 파일에 저장된 값을 원시데이터로 반환받아 저장 - LOAD
 			readByte=in.read();
 			
 			//파일 입력스트림으로 제공받을 파일 내용이 없는 경우 반복문 종료
@@ -35,7 +35,7 @@ public class FileInputStreamApp {
 			
 		}
 		
-		//FileInputStream.close() : 파일 입력스트림을 제거하는 메소드
+		//FileInputStream.close() : 파일 입력스트림을 제거하는 메소드 
 		in.close();
 	}
 

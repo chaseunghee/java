@@ -36,10 +36,10 @@ public class CalculatorFrameApp extends JFrame implements ActionListener {
 
 	private void init() {
 		label = new JLabel("0");
-		label.setFont(new Font("DIALOG", Font.BOLD, 30));
-		label.setHorizontalAlignment(JLabel.RIGHT);
-		label.setBackground(Color.LIGHT_GRAY);
-		label.setForeground(Color.WHITE);
+		label.setFont(new Font("DIALOG", Font.BOLD, 30));//글꼴 변경
+		label.setHorizontalAlignment(JLabel.RIGHT); //label 정렬
+		label.setBackground(Color.LIGHT_GRAY); //바탕색 변경
+		label.setForeground(Color.WHITE); //글자색 변경
 
 		JPanel p = new JPanel(new GridLayout(4, 4, 5, 5));
 		p.setBackground(Color.BLACK);
