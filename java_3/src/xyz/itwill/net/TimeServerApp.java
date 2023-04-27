@@ -12,7 +12,7 @@ import java.util.Date;
 public class TimeServerApp {
 	public static void main(String[] args) {
 		ServerSocket ntpServer=null;
-		
+		 
 		try {
 			//ServerSocket 객체 생성 : 포트를 활성화하여 클라이언트가 접속할 수 있는 환경 제공
 			ntpServer=new ServerSocket(2000); //2000번 포트 열어줌
