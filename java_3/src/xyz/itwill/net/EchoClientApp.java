@@ -45,7 +45,7 @@ public class EchoClientApp {
 			//			전달하는 메소드
 			out.write(message); //printwriter 가 가지고 있는 문자
 			
-			//방법1-2.- 방법1을 사용할 때 꼭 작성해야 함.
+			//방법2-2.- 방법1을 사용할 때 꼭 작성해야 함.
 			out.flush();
 			
 			socket.close(); //접속 해제 
