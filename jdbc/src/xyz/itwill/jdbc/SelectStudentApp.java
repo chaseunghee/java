@@ -65,7 +65,9 @@ public class SelectStudentApp {
 					String name=rs.getString("name");					
 					String phone=rs.getString("phone");					
 					String address=rs.getString("address");		
-					Date birthday=rs.getDate("birthday");
+					//Date birthday=rs.getDate("birthday"); - Date가 아닌 String으로 해도 가능
+					//처리행의 컬럼값은 오라클 자료형에 상관없이 getString() 메소드를 호출하여 문자열(String 객체)로 반환 가능
+					String birthday=rs.getString("birthday"); 
 					
 					System.out.println("학번 = "+no);
 					System.out.println("이름 = "+name);
