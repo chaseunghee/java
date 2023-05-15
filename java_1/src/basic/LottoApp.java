@@ -17,17 +17,21 @@ public class LottoApp {
 			while(true) {
 				//1~45 범위의 정수난수를 제공받아 배열 요소에 저장
 				lotto[i]=(int)(Math.random()*45)+1;
-				
+				System.out.println("-"+lotto[i]+"-");
+
 				//중복상태를 저장하기 위한 변수 - false:미중복, true:중복
 				boolean result = false;
-				
+
 				for(int j=0; j<i; j++) {//기존 난수값이 저장된 요소의 첨자를 표현하기 위한 반복문
+					System.out.println(lotto[j]);
+					System.out.println("**");
+					System.out.println(lotto[i]);
+					System.out.println("******");
 					if(lotto[i]==lotto[j]) {
 						result=true;
 						break;
 					}
 				}
-				
 				if(!result)
 					break; //새로운 난수가 기존 난수값과 중복되지 않는 경우 whlie 구문 종료
 			}

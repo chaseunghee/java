@@ -47,7 +47,7 @@ public class SelectStudentApp {
 			*/
 			
 			if(rs.next()) { //ResultSet 커서 위치에 처리행이 있는 경우 - true 
-				System.out.println("[메세지]검색된 학생정보가 있습니다.");
+				//System.out.println("[메세지]검색된 학생정보가 있습니다.");
 				
 			//검색된 다수의 학생정보가 저장된 ResultSet 객체의 처리하기 위한 반복문 - do while
 				do {
@@ -73,7 +73,9 @@ public class SelectStudentApp {
 					System.out.println("이름 = "+name);
 					System.out.println("전화번호 = "+phone);
 					System.out.println("주소 = "+address);
-					System.out.println("생년월일 = "+birthday);
+					//오라클의 날짜값을 문자열로 반환받으면 [yyyy-mmy-dd hh:MM:ss] 형식으로 반환
+					//=> 날짜만 출력되도록 문자열을 분리하여 출력
+					System.out.println("생년월일 = "+birthday.substring(0,10));
 					System.out.println("==================================================");
 	
 				} while(rs.next()); //ResultSet 커서를 다음행으로 이동 - 처리행이 있는 경우 반복문 실행, 처리행의 없는 경우 반복문 종료
