@@ -19,7 +19,7 @@ public interface StudentDAO { //-추상메소드(아래6개 메소드)를 Studen
 	int updateStudent(StudentDTO student);
 	
 	//학번을 전달받아 STUDENT 테이블에 저장된 학생정보를 삭제하고 삭제행의 개수를 반환하는 메소드
-	int deleteStudent(StudentDTO student);
+	int deleteStudent(int no);
 	
 	//학번을 전달받아 STUDENT 테이블에 저장된 학생정보를 검색하여 반환하는 메소드
 	//=> 단일행 : 값 또는 DTO 객체 반환 
