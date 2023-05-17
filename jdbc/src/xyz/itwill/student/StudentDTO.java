@@ -19,8 +19,9 @@ package xyz.itwill.student;
 	BIRTHDAY          DATE     
  */
 
-//STUDENT 테이블에 저장된 하나의 행(학생정보)을 저장하여 전달하기 위한 클래스
+//STUDENT 테이블에 저장된 하나의 행(학생정보)을 저장하여 전달하기 위한 DTO 클래스 (StudentDTO)
 public class StudentDTO {
+	//no,name,...을 저장할 필드 생성
 	private int no;
 	private String name;
 	private String phone;

@@ -19,6 +19,7 @@ public abstract class JdbcDAO { //상속만을 목적으로 하는 클래스
 	//PoolDataSource 객체를 저장하기 위한 필드
 	private static PoolDataSource pds; 
 	
+	//정적영역에서 했다는 건 클래스를 run하면 자동으로 됨
 	static {
 		//PoolDataSource 객체를 생성하여 Connection 객체를 생성하여 저장 
 		pds=PoolDataSourceFactory.getPoolDataSource();
