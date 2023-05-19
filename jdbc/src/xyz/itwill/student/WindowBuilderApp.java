@@ -11,6 +11,7 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 
 public class WindowBuilderApp extends JFrame {
+	private JPanel panel;
 
 	/**
 	 * Launch the application.
@@ -40,7 +41,7 @@ public class WindowBuilderApp extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		contentPane.add(panel, BorderLayout.NORTH);
 		
 		JButton RED = new JButton("RED");

@@ -605,7 +605,7 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 	
 	//JTextField 컴퍼넌트로 입력된 이름을 제공받아 STUDENT 테이블에 저장된 해당 이름이 포함된 학생정보를 검색하고 JTable 컴퍼넌트에 출력하는 메소드	
 	public void searchNameStudent() {
-String name=nameTF.getText();
+		String name=nameTF.getText();
 		
 		if(name.equals("")) {
 			JOptionPane.showMessageDialog(this, "이름을 반드시 입력해 주세요.");
