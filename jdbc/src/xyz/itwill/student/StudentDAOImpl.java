@@ -28,12 +28,16 @@ public class StudentDAOImpl extends JdbcDAO implements StudentDAO {
 	//싱글톤 
 	private static StudentDAOImpl _dao;
 	
-	public StudentDAOImpl() {
+	private StudentDAOImpl() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	static {
 		_dao=new StudentDAOImpl();
+	}
+	
+	public static StudentDAOImpl getDAO() {
+		return _dao;
 	}
 	
 	//학생정보를 전달받아 STUDENT 테이블에 삽입하고 삽입행의 개수를 반환하는 메소드	
@@ -80,11 +84,11 @@ public class StudentDAOImpl extends JdbcDAO implements StudentDAO {
 			
 			pstmt=con.prepareStatement(sql);
 			
-			pstmt.setInt(1, student.getNo());
-			pstmt.setString(2, student.getName());
-			pstmt.setString(3, student.getPhone());
-			pstmt.setString(4, student.getAddress());
-			pstmt.setString(5, student.getBirthday());
+			pstmt.setString(1, student.getName());
+			pstmt.setString(2, student.getPhone());
+			pstmt.setString(3, student.getAddress());
+			pstmt.setString(4, student.getBirthday());
+			pstmt.setInt(5, student.getNo());
 			
 			rows=pstmt.executeUpdate();
 			
