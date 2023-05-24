@@ -59,7 +59,8 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 
 		//Dimension : 컴퍼넌트 크기를 저장하기 위한 객체
 		Dimension dim = getToolkit().getScreenSize();
-		setLocation(dim.width / 2 - getWidth() / 2, dim.height / 2
+		setLocation(dim.width / 2 - getWidth() / 2, 
+				dim.height / 2
 				- getHeight() / 2);
 
 		JPanel left = new JPanel();
@@ -602,6 +603,7 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 		initDisplay();
 
 	}
+	
 	
 	//JTextField 컴퍼넌트로 입력된 이름을 제공받아 STUDENT 테이블에 저장된 해당 이름이 포함된 학생정보를 검색하고 JTable 컴퍼넌트에 출력하는 메소드	
 	public void searchNameStudent() {
