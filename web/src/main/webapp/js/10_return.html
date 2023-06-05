@@ -24,12 +24,12 @@
 	
 	
 	
-	function sum(num1, num2) {
+	function sum1(num1, num2) {
 		return num1+num2; //함수 종료 - num1+num2 합계를 반환
 	}
 	
 	//함수를 호출하여 return 명령으로 반환되는 값을 제공받아 변수에 저장
-	var tot=sum(10, 20);
+	var tot=sum1(10, 20);
 	alert("합계 = "+tot); // 결과 >> 합계 = 30
 	
 	//ES6에서 추가된 화살표 함수(매개변수2개)를 사용하여 함수를 선언해 변수에 저장  
@@ -42,12 +42,11 @@
 	
 	
 	function display1() {
-		alert("dipslay1 함수의 명령 실행");
+		alert("dipslay1 함수의 명령 실행"); // 결과 >> dipslay1 함수의 명령 실행
 	}
-	alert(); 
 	
 	//반환되는 결과값이 없는 함수를 호출하여 반환값을 변수에 저장할 경우 변수에는 아무런 값이 저장되지 않아 [undefined] 자료형으로 처리
-	var result=display();
+	var result=display1();
 	alert(result); // 결과 >> undefined
 	
 	</script>
