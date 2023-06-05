@@ -14,11 +14,11 @@
 	
 	<script type="text/javascript">
 	var id=setInterval(function() {
-		alert("setInterval 함수에 의해 반복 실행되는 명령");
+		alert("1setInterval 함수에 의해 반복 실행되는 명령");
 	}, 1000);
 	
 	//콜백함수에 화살표함수를 전달하여 함수의 명령을 반복 실행
-	var id=setInterval(() => alert("setInterval 함수에 의해 반복 실행되는 명령"), 1000);
+	var id=setInterval(() => alert("2setInterval 함수에 의해 반복 실행되는 명령"), 1000);
 	
 	setTimeout(function() {
 		clearInterval(id);
