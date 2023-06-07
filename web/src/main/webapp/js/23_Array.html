@@ -42,6 +42,82 @@
 	alert(array); // 요소는 ,로 구분 - 결과 >> 10,20,30
 	
 	
+	
+	/*
+		Array 객체에 저장된 요소는 첨자(0부터 1씩 증가되는 숫자(정수)값)를 사용하여 구분
+		=> Array 객체의 요소는 [] 연산자에 첨자를 사용하여 표현
+	*/
+	alert("array[0] = "+array[0]+", array[1] = "+array[1]+", array[2] = "+array[2]); // 결과 >> array[0] = 10, array[1] = 20, array[2] = 30
+	
+	//Array 객체의 요소를 표현하는 첨자가 범위를 벗어난 경우 [undefined] 자료형으로 표현
+	alert("array[3] = "+array[3]); // 결과 >> array[3] = undefined
+	
+	
+	//JSON을 이용하여 Array 객체 생성
+	var array=[]; // Empty Array (Array 객체 안에 요소가 없음)
+	alert(array.length); // 결과 >> 0
+	
+	
+	
+	//JSON을 이용하여 Array 객체를 생성하고 Array 객체의 요소에 초기값 저장
+	var array=[10,20,30];
+	alert(array.length); // 결과 >> 3
+	
+	/* [for] 문을 이용하는 방법(첨자) - 1 (정석,보편적)
+	//for 구문을 이용하여 Array 객체 요소에 대한 일괄 처리
+	for(i=0; i<array.length; i++){
+		alert("array["+i+"] = "+array[i]); // 결과1 >> array[0] = 10 결과2 >> array[1] = 20 결과3 >> array[2] = 30
+	}
+	*/
+	
+	/* [for] 문을 이용하는 방법(in 연산자 사용) - 2 
+	//in 연산자를 사용한 for 구문을 이용하여 Array 객체의 첨자를 제공받아 일괄 처리 가능
+	for(index in array) {
+		alert("array["+index+"] = "+array[index]); // 결과1 >> array[0] = 10 결과2 >> array[1] = 20 결과3 >> array[2] = 30
+	}
+	*/
+	
+	
+	/* [for] 문을 이용하는 방법(of 연산자 사용) - 3
+	//of 연산자를 사용한 for 구문을 이용하여 Array 객체의 요소값을 제공받아 일괄 처리 가능
+	
+	for(value of array){
+		alert(value); // 결과1 >> 10 결과2>> 20 결과3>>30
+	}
+	*/
+	
+	
+	/*
+		Array.forEach(callback(element[, index][, array])) : Array 객체의 요소를 일괄 처리하기 위한 기능을 제공하는 메소드
+		=> 메소드 매개변수에 콜백함수를 전달하면 Array 객체에 저장된 요소의 개수만큼 반복 호출되며 콜백함수의 매개변수로 전달받은 값을 이용하여 Array 객체를 콜백함수에서 처리
+		=> 콜백함수의 매개변수에는 요소값, 첨자, Array 객체가 자동 저장되어 콜백함수에서 사용 가능
+	
+	array.forEach(function(elt, i) {
+		alert("array["+i+"] = "+elt);
+	}); // 결과1 >> array[0] = 10 결과2 >> array[1] = 20 결과3 >> array[2] = 30
+	*/
+	
+	
+	alert(array); // 결과 >> 10,20,30
+	
+	//Array.push(value) : Array 객체의 마지막 위치에 요소를 추가하여 매개변수로 전달받은 값을 요소값으로 저장하는 메소드
+	array.push(40);
+	alert(array); // 결과 >> 10,20,30,40
+	
+	//Array.pop() : Array 객체의 마지막 위치에 요소를 삭제하고 삭제된 요소의 값을 반환하는 메소드
+	var value=array.pop(); 
+	alert(array); // 결과 >> 10,20,30
+	alert(value) ; // 결과 >> 40
+	
+	//Array.unshift(value) : Array 객체의 첫번째 요소를 추가하고 매개변수로 전달받은 값을 요소값으로 저장하는 메소드
+	array.unshift(value); 
+	alert(array); // 결과 >> 40,10,20,30
+	
+	//Array.shift() : Array 객체의 첫번째 요소를 삭제하고 삭제된 요소의 값을 반환하는 메소드
+	var value=array.shift();
+	alert(value); // 결과 >> 40
+		
+	
 	</script>
 </body>
 </html>
