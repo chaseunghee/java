@@ -40,14 +40,14 @@
 		=> ⅠObject 객체 : {}
 		=> ⅡArray 객체 : []
 	
-	var student={};
+	var student={}; //변수 student에 Object 객체 생성
 	alert(student); // 결과 >> [object Object] 
 	
 	//Object 객체에 요소 추가
 	student.num=1000;//프로퍼티 추가
 	student.name="홍길동";
 	student.address="서울시 강남구";
-	student.display=function(){
+	student.display=function(){ //메소드(display)
 		alert("학번 = "+this.num+", 이름 = "+this.name+", 주소 = "+this.address); // 결과 >> 학번 = 1000, 이름 = 홍길동, 주소 = 서울시 강남구
 	}
 	
