@@ -21,18 +21,17 @@
 	<div id="text"></div>
 	
 	<script type="text/javascript">
-	var ulList=document.getElementsByTagName("ul");
+	var ulList=document.getElementsByTagName("ul"); //ul 요소 취득
 	
-	var liList=ulList.item(0).getElementsByTagName("li");
+	var liList=ulList.item(0).getElementsByTagName("li"); // ul 요소의 첫번째 아이템 li 요소 취득
 	
 	var liE=liList.item(1);//<li>메뉴-2</li>
 	
 	//Text 객체를 이용하여 태그 내용 변경
 	//liE.firstChild.nodeValue="신메뉴";//<li>신메뉴</li>
 	
-	var newText=document.createTextNode("신메뉴");
-	//Node.replaceChild(newNode, oldNode) : Node(Element) 객체의 기존 자식 Node(Element) 객체를
-	//새로운 Node(Element) 객체로 변경하는 메소드
+	var newText=document.createTextNode("신메뉴"); //신메뉴라는 문자열 생성
+	//Node.replaceChild(newNode, oldNode) : Node(Element) 객체의 기존 자식 Node(Element) 객체를 새로운 Node(Element) 객체로 변경하는 메소드(자식노드를 새 노드로 대체)
 	liE.replaceChild(newText, liE.firstChild);
 	
 	/*
@@ -43,7 +42,7 @@
 	divE.appendChild(pE);//<div id="text"><p>p 태그에 의해 출력되는 내용</p></div>
 	*/
 
-	var divE=document.getElementById("text");//<div id="text"></div>
+	var divE=document.getElementById("text");//text 찾는 함수 - <div id="text"></div>
 	//Node.innerHTML : Node(Element) 객체에 자식 태그 또는 태그내용을 저장한 프로퍼티
 	// => Node(Element) 객체의 innerHTML 프로퍼티를 사용하여 하위태그 및 태그내용 변경 가능
 	divE.innerHTML="<p>p 태그에 의해 출력되는 내용</p>";
