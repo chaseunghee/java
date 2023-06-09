@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	<h1>쿠키(Cookie)</h1>
+	<hr>
+	<p>쿠키 : 서버와 클라이언트의 연결 지속성을 제공하기 위해 클라이언트에 저장되는 문자값</p>
+	<p>클라이언트에 접속된 웹서버의 이름을 식별자로 사용하여 다수의 쿠키를 클라이언트에 저장해 웹서버의 웹프로그램 요청시 쿠키에 저장된 값을 전달</p>
+	<hr>
+	<form name="cookieForm">
+		아이디 : <input type="text" name="id">&nbsp;&nbsp;
+		<button type="button" id="saveBtn">입력 아이디 저장</button>&nbsp;&nbsp;
+		<button type="button" id="saveBtn">입력 아이디 저장</button>&nbsp;&nbsp;
+		<button type="button" id="saveBtn">입력 아이디 저장</button>&nbsp;&nbsp;		
+	
+	</form>
+	
+	<script type="text/javascript">
+	/*
+		클라이언트에 쿠키를 저장(변경)하는 함수
+		=> 쿠키에는 필요한 정보를 이름과 값으로 묶어 저장(이름=값)
+		=> 쿠키에 필요한 정보를 ;를 이용해 구분하여 쿠키에 여러개 저장 가능
+		=> 쿠키의 필수 정보로 쿠키명과 쿠키값을 묶어 저장
+		=> 쿠키의 선택 정보로 적용범위, 도메인, 지속시간 등을 저장 - 선택 정보를 저장하지 않으면 기본값 사용
+	*/
+	function setCookie(name, value, path, expires) {
+		var sc=""; //쿠키를 저장하기 위한 변수
+		
+		/*
+			쿠키변수에 쿠키명과 쿠키값을 묶어서 저장
+			=> 쿠키값은 영문자, 숫자, 일부 특수문자만 저장 가능
+			=> 영문자 ,숫자, 일부 특수문자를 제외한 문자는 부호화 처리하여 저장
+		*/
+		sc+=name+"="+encodeURIComponent(value)+";";
+		
+		//쿠키변수에 path 이름으로 쿠키의 적용범위를 묶어서 저장
+		sc+="path"+path+";";
+		
+		//클라이언트의 현재 날짜와 시간이 저장된 Date 객체 생성
+		var date=new Date(); //클라이언트의 현재 날짜와 시간이 저장된 Date 객체 생성
+		//Date.setDate(Number) : Date 객체에 저장된 날짜와 시간 중 일을 변경하는 메소드
+		date.setDate(date.getDate()+expires); //매개변수로 전달받은 일수만큼 증가되게 만들어줌
+		
+		//쿠키변수에 expires 이름으로 쿠키의 지속시간을 묶어서 저장
+		//date.toUTCString() : Date 객체에 저장된 날짜와 시간을 세계표준시(UTC)의 문자값을 변환하여 반환하는 메소드
+		sc+="expires="+date.toUTCString()+";";
+		
+		//document.cookie : 쿠키를 저장하기 위한 객체
+		document.cookie=sc;	//클라이언트에 쿠키 저장
+	}
+		
+	//클라이언트에 저장된 쿠키의 쿠키값을 반환하는 함수
+	//=> 클라이언트에 저장된 쿠키 중 매개변수로 전달받아 이름의 쿠키값 변환
+	function getCookie(name) {
+		//쿠키에 저장된 정보를 ;으로 분리하여 변수에 저장
+		var gc=document.cookie.split(","); //변수에 Array 객체 저장
+		
+		for(i=0; i<gc.length; i++){
+			//Array 객체의 요소값(쿠키정보)을 = 문자값으로 분리하여 첫번째 요소값(이름)을 매개변수로 전달받은 값(쿠키명)과 비교하여 같은 경우
+			if(gc[i].split("=")[0]==name){
+				//두번째 요소값(쿠키값)을 반환
+				return gc[i].split("=")[1];
+			}
+		}
+	}
+	
+	
+	</script>
+</body>
+</html>
