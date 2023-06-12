@@ -48,11 +48,11 @@ ul li {
 		//◈ 결과 동일 - 방법의 차이(아래 this 권장)
 		
 		//◈ this 키워드에는 이벤트가 발생된 태그의 Node(Element) 객체가 자동 저장
-		this.style="color: green"; 
+		this.style="color: green"; //this. = document.getElementById("displayDiv") 이벤트가 발생한 태그를 의미 
 	}
 	
 	
-	
+	//노드리스트 사용 - item(i)
 	var liList=document.getElementsByTagName("li"); //li태그 요소 찾음
 	
 	// ▣ liList 0아이템에서 onclick이 발생되었다면 function()
@@ -90,7 +90,7 @@ ul li {
 			NodeList 객체에 저장된 모든 Node(Element) 객체의 이벤트 리스너 속성에 이벤트 처리 함수 등록
 			=> 이벤트 처리 함수는 Node(Element) 객체에서 이벤트가 발생되면 호출되어 실행
 		*/
-		liList.item(i).onclick=function() {
+		liList.item(i).onclick=function() { //liList.item(i) = li 태그 의미
 		//반복문이 종료된 후 이벤트가 발생될 경우에 실행되는 명령
 		liList.item(i).style="color: orange"; //liList.item(3) >> null 
 		}
@@ -99,8 +99,8 @@ ul li {
 	
 	//  ▣ 불편 for문 작성 권장 - 위에 방법말고 [this] 사용해야 정상적으로 실행됨
 	for(i=0; i<liList.length; i++){ 
-		liList.item(i).onclick=function() { //liList.item(3)
-			this.style="color: orange"; 
+		liList.item(i).onclick=function() { 
+			this.style="color: orange";  //이벤트처리함수 안에서 실행되는 element를 찾을 수 없을 때 사용
 		}
 	}
 	</script>
