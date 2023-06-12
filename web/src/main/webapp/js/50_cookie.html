@@ -44,24 +44,27 @@
 		//Date.setDate(number) : Date 객체에 저장된 날짜와 시간 중 일을 변경하는 변경하는 메소드
 		date.setDate(date.getDate()+expires);
 		
-		//쿠키변수에 expires 이름으로 쿠키의 지속시간을 묶어서 저장
-		//date.toUTCString() : Date 객체에 저장된 날짜와 시간을 협정 세계시(UTC)의 문자값을 
-		//변환하여 반환하는 메소드
+		/*
+			쿠키변수에 expires 이름으로 쿠키의 지속시간을 묶어서 저장
+			
+			date.toUTCString() : Date 객체에 저장된 날짜와 시간을 협정 세계시(UTC)의 문자값을 변환하여 반환하는 메소드
+		*/
 		sc+="expires="+date.toUTCString()+";";
 	
 		//document.cookie : 쿠키를 저장하기 위한 객체
 		document.cookie=sc;//클라이언트에 쿠키 저장
 	}
 	
-	//클라이언트에 저장된 쿠키의 쿠키값을 반환하는 함수
-	// => 클라이언트에 저장된 쿠키 중 매개변수로 전달받아 이름의 쿠키값 반환
+	/*
+		클라이언트에 저장된 쿠키의 쿠키값을 반환하는 함수
+		=> 클라이언트에 저장된 쿠키 중 매개변수로 전달받아 이름의 쿠키값 반환
+	*/
 	function getCookie(name) {
 		//쿠키에 저장된 정보를 ; 문자값으로 분리하여 변수에 저장
 		var gc=document.cookie.split(";");//변수에 Array 객체 저장
 		
 		for(i=0;i<gc.length;i++) {
-			//Array 객체의 요소값(쿠키정보)을 = 문자값으로 분리하여 첫번째 요소값(이름)을
-			//매개변수로 전달받은 값(쿠키명)과 비교하여 같은 경우
+			//Array 객체의 요소값(쿠키정보)을 = 문자값으로 분리하여 첫번째 요소값(이름)을 매개변수로 전달받은 값(쿠키명)과 비교하여 같은 경우
 			if(gc[i].split("=")[0] == name) {
 				//두번째 요소값(쿠키값)을 반환
 				return gc[i].split("=")[1];
@@ -72,8 +75,10 @@
 		return null;
 	}
 	
-	//[입력 아이디 저장] 버튼을 클릭한 경우 호출되는 이벤트 처리 함수 등록
-	// => 입력태그의 입력값(아이디)를 반환받아 클라이언트의 쿠키로 저장
+	/*
+		[입력 아이디 저장] 버튼을 클릭한 경우 호출되는 이벤트 처리 함수 등록
+		 => 입력태그의 입력값(아이디)를 반환받아 클라이언트의 쿠키로 저장
+	*/
 	document.getElementById("saveBtn").onclick=function() {
 		var id=cookieForm.id.value;//입력태그의 입력값을 변수에 저장
 		
@@ -89,9 +94,10 @@
 		cookieForm.id.value="";
 	}
 	
-	
-	//[저장 아이디 사용] 버튼을 클릭한 경우 호출되는 이벤트 처리 함수 등록
-	// => 클라이언트에 저장된 쿠키값을 반환받아 입력태그의 입력값으로 출력
+	/*
+		[저장 아이디 사용] 버튼을 클릭한 경우 호출되는 이벤트 처리 함수 등록
+		 => 클라이언트에 저장된 쿠키값을 반환받아 입력태그의 입력값으로 출력
+	*/
 	document.getElementById("useBtn").onclick=function() {
 		var id=getCookie("id");
 		
@@ -104,8 +110,10 @@
 		cookieForm.id.value=id;
 	}
 	
-	//[저장 아이디 삭제] 버튼을 클릭한 경우 호출되는 이벤트 처리 함수 등록
-	// => 클라이언트에 저장된 쿠키 삭제
+	/*
+		[저장 아이디 삭제] 버튼을 클릭한 경우 호출되는 이벤트 처리 함수 등록
+	 	=> 클라이언트에 저장된 쿠키 삭제
+	*/
 	document.getElementById("removeBtn").onclick=function() {
 		//쿠키의 지속기간을 과거로 변경 - 쿠키 삭제		
 		setCookie("id", "", "/", -1);
