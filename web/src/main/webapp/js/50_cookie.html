@@ -5,11 +5,35 @@
 <title>JavaScript</title>
 </head>
 <body>
+<!--  
+	*Cookie는 데이터이면서, 우리가 현재 사용하는 컴퓨터에 작은 텍스트파일로 저장되어있는 것
+	*기억하도록 도와주는 것이 쿠키
+	*쿠키가 저장되는 방식은 name - value 방식
+	*브라우저가 웹 페이지를 서버로부터 요청하게되면, 이 페이지에 속한 쿠키들이 추가로 요청, 이러한 방법을 통해 유저에 대한 정보를 기억하는 필수 데이터를 서버가 가져올 수 있는 것
+	
+	*자바스크립트는 document.cookie 속성을 이용하여 쿠키를 create, delete, read 가능
+	
+	*[create] 방법
+	1. document.cookie = "username = Crocus";
+	2. document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+	3. document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+
+	*[read] 방법
+	1. var x = document.cookie;
+	-x에는 쿠키가 하나의 스트링으로 리턴되어 온다.
+	
+	*[change] 방법
+	1.. document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+	-이미 존재하는 쿠키 값을 변경 할 수 있는 방법이다.(덮어쓰기가 된다.)
+	
+	*[delete] 방법
+	1. document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	-만료 기간을 과거로 바꾸어 버리면 됨.
+-->
 	<h1>쿠키(Cookie)</h1>
 	<hr>
 	<p>쿠키 : 서버와 클라이언트의 연결 지속성을 제공하기 위해 클라이언트에 저장되는 문자값</p>
-	<p>클라이언트에 접속된 웹서버의 이름을 식별자로 사용하여 다수의 쿠키를 클라이언트에
-	저장해 웹서버의	웹프로그램 요청시 쿠키에 저장된 값을 전달</p>
+	<p>클라이언트에 접속된 웹서버의 이름을 식별자로 사용하여 다수의 쿠키를 클라이언트에 저장해 웹서버의	웹프로그램 요청시 쿠키에 저장된 값을 전달</p>
 	<hr>
 	<form name="cookieForm">
 		아이디 : <input type="text" name="id">&nbsp;&nbsp;
@@ -26,6 +50,8 @@
 	 	=> 쿠키의 필수 정보로 쿠키명과 쿠키값을 묶어 저장
 	 	=> 쿠키의 선택 정보로 적용범위, 도메인, 지속시간 등을 저장 - 선택 정보를 저장하지 않을 경우 기본값 사용
 	*/
+	
+	//cookie를 설정하는 setCookie() 함수 만들기
 	function setCookie(name, value, path, expires) {
 		var sc="";//쿠키를 저장하기 위한 변수
 		
