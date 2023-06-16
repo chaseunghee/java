@@ -50,7 +50,9 @@ public class JoinServlet extends HttpServlet {
 		}
 		*/
 		
-		//◎ - [방법 - 3] 클라이언트에서 자바스크립트 전달하여 응답
+		/*◎ - [방법 - 3] 클라이언트에서 자바스크립트 전달하여 응답
+						=> 경고찿ㅇ을 이용하여 메세지 출력 후 입력페이지로 이동 처리
+		 */
 		if(request.getMethod().equals("GET")) { //서블릿을 비정상적으로 요청한 경우
 			out.println("<script type='text/javascript'>");
 			out.println("alert('비정상적으로 페이지를 요청 하였습니다.');");

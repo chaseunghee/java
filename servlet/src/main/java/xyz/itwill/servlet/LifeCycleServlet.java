@@ -21,6 +21,13 @@ import javax.servlet.http.HttpServletResponse;
 */
 
 
+/*
+service메소드를 사용하기 위해서 was는 litcycleservlet 클래스를 이용해서 객체 생성(기본 생성자가 꼭 있어야함)
+굳이 선언안해도 됨(없으면 기본생성자가 있다고 알아서 디폴트되는데 만드는 이유는 초기화 처리하기 위해 - 여기서 초기화처리의 의미는 필드의 선언한 것(name)
+이후 init 오버라이드해서 초기화 처리해줌 
+*/
+
+
 @WebServlet("/life.itwill")
 public class LifeCycleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -56,7 +63,8 @@ public class LifeCycleServlet extends HttpServlet {
 			ServletConfig.getServletContext() : ServletContext 객체를 반환하는 메소드
 			ServletContext.getInitParameter(String name) : [web.xml] 파일에서 제공되는 값을 얻어와 반환하는 메소드
 		*/
-		name=config.getServletContext().getInitParameter("name");
+		name=config.getServletContext().getInitParameter("name"); // -- [web.xml] context-param
+		//name=config.getInitParameter("name"); -- [web.xml] init-param
 	}
 	
 	/*
