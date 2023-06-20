@@ -1,5 +1,7 @@
 package xyz.itwill.dto;
 /*
+	[제일 먼저 만들어야 하는 클래스 - DTO ]
+
 	DTO(Data Transfer Object) 클래스 : 테이블의 행정보를 표현하여 전달하기 위한 클래스 - VO 클래스
 	
 이름       널?       유형            

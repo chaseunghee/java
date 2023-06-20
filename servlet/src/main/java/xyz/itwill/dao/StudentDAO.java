@@ -23,14 +23,14 @@ public class StudentDAO extends JdbcDAO{
 	}
 	
 	public static StudentDAO get_dao() {
-		return _dao;
+		return _dao; //한 번만 실행됨
 	}
 
 	public static void set_dao(StudentDAO _dao) {
 		StudentDAO._dao = _dao;
 	}
 	
-	//STUDENT 테이블에 저장된 모든 학생정보를 검색하여 반환하는 메소드
+	//STUDENT 테이블에 저장된 모든 학생정보를 검색하여 List 객체로 반환하는 메소드
 	public List<StudentDTO> selectStudentList(){
 		Connection con=null;
 		PreparedStatement pstmt=null;

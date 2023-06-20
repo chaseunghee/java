@@ -14,7 +14,7 @@ import xyz.itwill.dao.StudentDAO;
 import xyz.itwill.dto.StudentDTO;
 
 /*
-	STUDENT 테이블에 저장된 모든 학생정보를 검색하여 클라이언트에게 전달하여 응답하는 서블릿 - DAO 
+	STUDENT 테이블에 저장된 모든 학생정보를 검색하여 클라이언트에게 전달하여 응답하는 서블릿 - DAO 클래스 이용(그 전 DTO 클래스 생성)
 */
 @WebServlet("/new.itwill")
 public class StudentDisplayNewServlet extends HttpServlet {

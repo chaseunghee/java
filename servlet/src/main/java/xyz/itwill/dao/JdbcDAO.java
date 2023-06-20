@@ -9,6 +9,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+
 /*
 	JDBC 기능을 제공하는 DAO 클래스가 상속받아 사용하기 위한 작성된 부모 클래스
 	=> WAS 프로그램에 의해 관리되는 DataSource 객체를 제공받아 필드에 저장 - 정적영역에서 작성하여 한 번만 실행 
