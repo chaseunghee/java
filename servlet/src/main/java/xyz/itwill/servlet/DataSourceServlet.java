@@ -15,6 +15,7 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 /*
 	DBCP(DataBase Connection Pool) 객체 : 다수의 Connection 객체를 미리 생성하여 저장하고 제공하기 위한 객체
+	=> 일반적으로 DataSource 인터페이스를 상속받은 자식클래스로 객체 생성
 
 	Apache 그룸에서 제공하는 tomcat-dbcp 라이브러리의 클래스를 이용하여 DBCP 객체를 생성하여 Connection 객체를 제공받아 Connection 객체의 정보를 클라이언트에게 전달하여 응답하는 서블릿
 */
@@ -26,14 +27,16 @@ public class DataSourceServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out=response.getWriter();
 		
-		//BasicDataSource 객체(DataSource 객체) 생성
+		//BasicDataSource 객체(DataSource 객체) 생성 - 이유) BasicDataSource 객체 안에 connection객체 미리 여러개 만들어서 넣어주기 위함
 		BasicDataSource dataSource=new BasicDataSource();
 		
 		//BasicDataSource 객체(DataSource 객체)에 저장될 다수의 Connection 객체를 생성하기 위한 정보를 메소드를 호출하여 변경 처리 - DataSource 객체의 필드값 변경
+		//필수 아래부터 4개
 		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
 		dataSource.setUsername("scott");
 		dataSource.setPassword("tiger");
+		//필수 아님 아래부터 3개
 		dataSource.setInitialSize(10); //최초 생성될 Connection 객체의 개수 변경
 		dataSource.setMaxIdle(10); //대기상태의 Connection 객체의 최대 개수 변경
 		dataSource.setMaxTotal(15); //생성 가능한 Connection 객체의 최대 개수 변경
