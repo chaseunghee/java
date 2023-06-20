@@ -28,7 +28,7 @@ public class GuestDAO extends JdbcDAO{ //JdbcDAO 상속받아 메소드 사용
 	}
 
 	//방명록 게시글 정보를 전달받아 GUEST 테이블에 삽입하고 삽입행의 개수를 반환하는 메소드
-	public int inserGuest(GuestDTO guest) {
+	public int insertGuest(GuestDTO guest) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		int rows=0;
@@ -36,20 +36,19 @@ public class GuestDAO extends JdbcDAO{ //JdbcDAO 상속받아 메소드 사용
 		try {
 			con=getConnection();
 			
-			String sql="insert into guest values(guest_seq.nesxtvalue, ?, ?, ?, sysdate)";
-			pstmt=con.prepareStatement(sql); 
-			//?,?,? 인파라메타 작성
+			String sql="insert into guest values(guest_seq.nextval, ?, ?, ?, sysdate)";
+			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, guest.getWriter());
 			pstmt.setString(2, guest.getSubject());
 			pstmt.setString(3, guest.getContent());
 			
 			rows=pstmt.executeUpdate();
-		}catch (SQLException e) {
-			System.out.println("[에러]insertGuest 메소드의 SQL 오류 = "+e.getMessage());
-		}finally {
+		} catch (SQLException e) {
+			System.out.println("[에러]insertGuest() 메소드의 SQL 오류 = "+e.getMessage());
+		} finally {
 			close(con, pstmt);
 		}
-		return rows; //삽입행의 개수 반환
+		return rows;
 	}
 	
 	//방명록 게시글 정보를 전달받아 GUEST 테이블에 변경하고 변경행의 개수를 반환하는 메소드
@@ -57,24 +56,20 @@ public class GuestDAO extends JdbcDAO{ //JdbcDAO 상속받아 메소드 사용
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		int rows=0;
-		
 		try {
 			con=getConnection();
 			
 			String sql="update guest set writer=?, subject=?, content=? where num=?";
-			
 			pstmt=con.prepareStatement(sql);
-			
 			pstmt.setString(1, guest.getWriter());
-	        pstmt.setString(2, guest.getSubject());
-	        pstmt.setString(3, guest.getContent());
-	        pstmt.setInt(4, guest.getNum());
-	         
-	        rows=pstmt.executeUpdate(sql);
-
+			pstmt.setString(2, guest.getSubject());
+			pstmt.setString(3, guest.getContent());
+			pstmt.setInt(4, guest.getNum());
+			
+			rows=pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("[에러]insertGuest 메소드의 SQL 오류 = "+e.getMessage());
-		}finally {
+			System.out.println("[에러]updateGuest() 메소드의 SQL 오류 = "+e.getMessage());
+		} finally {
 			close(con, pstmt);
 		}
 		return rows;
@@ -127,7 +122,7 @@ public class GuestDAO extends JdbcDAO{ //JdbcDAO 상속받아 메소드 사용
 				guest.setRegdate(rs.getString("regdate"));
 			}
 		}catch (SQLException e) {
-			System.out.println("[에러]insertGuest 메소드의 SQL 오류 = "+e.getMessage());
+			System.out.println("[에러]selectGuest() 메소드의 SQL 오류 = "+e.getMessage());
 		}finally {
 			close(con, pstmt, rs);
 		}

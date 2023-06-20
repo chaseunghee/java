@@ -26,6 +26,7 @@ public class GuestSelectServlet extends HttpServlet {
 		
 		//GUEST 테이블에 저장된 모든 행을 검색하여 List 객체로 반환하는 DAO 클래스의 메소드 호출
 		List<GuestDTO> guestList=GuestDAO.getDao().selectGuestList();
+		
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
 		out.println("<head>");
@@ -33,7 +34,7 @@ public class GuestSelectServlet extends HttpServlet {
 		out.println("<title>Servlet</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>방명록</h1>");
+		out.println("<h1>방명록 글목록</h1>");
 		out.println("<hr>");
 		out.println("<table width='1000'>");
 		out.println("<tr>");
@@ -41,7 +42,7 @@ public class GuestSelectServlet extends HttpServlet {
 		out.println("<button type='button' onclick='location.href=\"writeForm.itwill\";'>글쓰기</button>");
 		out.println("</td>");
 		out.println("</tr>");
-		if(guestList.isEmpty()) {
+		if(guestList.isEmpty()) {//List 객체에 요소가 없는 경우 - 검색행이 없는 경우
 			out.println("<tr>");
 			out.println("<td>");
 			out.println("<table border='1' cellspacing='0' width='100%'>");
@@ -51,7 +52,7 @@ public class GuestSelectServlet extends HttpServlet {
 			out.println("</table>");
 			out.println("</td>");
 			out.println("</tr>");
-		} else {
+		} else {//List 객체에 요소가 있는 경우 - 검색행이 있는 경우
 			for(GuestDTO guest : guestList) {
 				out.println("<tr>");
 				out.println("<td align='center'>");
@@ -69,12 +70,18 @@ public class GuestSelectServlet extends HttpServlet {
 				out.println("<tr>");
 				out.println("<th width='150'>내용</th>");
 				out.println("<td width='650' colspan='3'>"+guest.getContent().replace("\n", "<br>")+"</td>");
-				out.println("<br>");
-				out.println("<button type='button'>변경</button>");
-				out.println("<button type='button'>삭제</button>");
+				out.println("</tr>");
+				out.println("<tr>");
+				out.println("<td align='right' colspan='4'>");
+				out.println("<button type='button' onclick='location.href=\"modifyForm.itwill?num="+guest.getNum()+"\";'>변경</button>");				
+				out.println("<button type='button' onclick='location.href=\"remove.itwill?num="+guest.getNum()+"\";'>삭제</button>");				
+				out.println("</td");
 				out.println("</tr>");
 				out.println("</table>");
 				out.println("</td>");
+				out.println("</tr>");
+				out.println("<tr>");
+				out.println("<td>&nbsp;</td>");
 				out.println("</tr>");
 			}
 		}
