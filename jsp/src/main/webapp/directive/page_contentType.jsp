@@ -1,5 +1,6 @@
 <%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> --%>
-<%@ page language="java"  contentType="application/msword; charset=UTF-8" pageEncoding="UTF-8"%>
+<%-- contentType="application/msword" : 웹에서 해당 도메인 주소로 접속 하면 다운받겠다는 의사여부를 붇지않고 바로 다운 --%>
+<%@ page language="java"  contentType="application/msword; charset=UTF-8" pageEncoding="UTF-8" %> 
 <!DOCTYPE html>
 <html>
 <head>
