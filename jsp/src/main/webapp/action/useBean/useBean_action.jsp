@@ -46,6 +46,7 @@
 	value 속성 : 필드에 저장될 변경값을 속성값으로 설정
 	
 	<jsp:setProperty property="name" name="hewon" value="홍길동"/>
+	
 	hewon.setName("홍길동");
 --%>
 <%-- 
