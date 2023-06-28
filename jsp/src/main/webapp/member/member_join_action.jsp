@@ -3,12 +3,11 @@
 <%@page import="xyz.itwill.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- 회원정보를 전달받아 MEMBER 테이블의 회원정보로 삽입하고 [member/member_login.jsp] 문서를 요청하기 위한 URL 주소를 전달하여 응답하는 JSP 문서 --%>
-<%
-	//JSP 문서를 GET 방식으로 요청한 경우 - 비정상적인 요청
-	if(request.getMethod().equals("GET")){
-		//response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
-		response.sendRedirect(request.getContextPath()+"/index.jsp?group=error&worker=error_404");
+<%-- 회원정보를 전달받아 MEMBER 테이블의 회원정보로 삽입하고 [member/member_login.jsp] 문서를 요청하기 위한 URL 주소를 전달하여 응답하는 JSP 문서 --%><%
+	if(request.getMethod().equals("GET")) {
+		//response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+		response.sendRedirect(request.getContextPath()+"/index.jsp?group=error&worker=error_400");
+		return;
 	}
 
 	//POST 방식으로 요청하여 전달된 값에 대한 캐릭터셋 변경
@@ -42,4 +41,7 @@
 	//회원정보를 전달받아 MEMBER 테이블에 삽입하는 DAO 클래스의 메소드 호출
 	MemberDAO.getDao().insertMember(member);
 		
+	//페이지 이동
+	response.sendRedirect(request.getContextPath()+"/index.jsp?group=member&worker=member_login");
+%>
 	

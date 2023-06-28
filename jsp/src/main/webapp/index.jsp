@@ -14,19 +14,24 @@
 	if(worker==null) worker="main_page";
 	
 	String contentPath=group+"/"+worker+".jsp";
-%>
+	
+	String headerPath="header_main.jsp";
+	if(group.equals("admin")) {
+		headerPath="header_admin.jsp";
+	}
+%>   
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>JSP</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script><link href="css/style.css" rel="stylesheet" type="text/css"> 
-<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath() %>/css/style.css"  rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="header">
-		<jsp:include page="header_main.jsp"/>
-	</div>
+		<%--<jsp:include page="header_main.jsp"/> --%>
+		<jsp:include page="<%=headerPath %>"/>	</div>
 	
 	<div id="content">
 		<jsp:include page="<%=contentPath %>"/>
