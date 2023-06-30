@@ -38,18 +38,18 @@
 	width: 300px;
 }    
 
-#login label {
+#loginForm label {
 	text-align: right;
 	width: 100px;
 	float: left;
 }
 
-#login ul li {
+#loginForm ul li {
 	list-style-type: none;
 	margin-bottom: 10px;
 }
 
-#login input:focus {
+#loginForm input:focus {
 	border: 2px solid aqua;
 }
 

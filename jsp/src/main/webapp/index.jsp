@@ -7,6 +7,8 @@
 --%>
 
 <%
+	request.setCharacterEncoding("utf-8");
+	
 	String group=request.getParameter("group"); // 
 	if(group==null) group="main";
 	
