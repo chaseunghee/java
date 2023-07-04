@@ -31,8 +31,8 @@
 	//페이지에서 검색된 태그를 Element 객체로 반환받아 Click 이벤트가 발생될 경우 호출될 이벤트
 	document.getElementById("").onclick=function(){
 		
-			페이지에서 검색된 태그를 Element 객체로 반환받아 태그의 내용을 변경 처리 - DHTML
-			=> 현재 요청 웹프로그램의 실행 결과를 이용하여 페이지의 태그 변경
+			//페이지에서 검색된 태그를 Element 객체로 반환받아 태그의 내용을 변경 처리 - DHTML
+			  => 현재 요청 웹프로그램의 실행 결과를 이용하여 페이지의 태그 변경
 		
 		document.getElementById("display").innerHTML="안녕하세요. 에이젝스!!!";
 	}
