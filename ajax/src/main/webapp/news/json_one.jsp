@@ -65,15 +65,15 @@
 					var result=eval("("+xhr.responseText+")");
 					*/
 				
-					//JSON.parse(json) : JSON 형식의 데이타를 전달받아 자바스크립트 객체로 변환하여 반환하는 메소드
+					//JSON.parse(json) : 매개변수로 전달받은 JSON 형식의 데이터를 전달받아 자바스크립트 객체로 변환하여 반환하는 메소드
 					var result=JSON.parse(xhr.responseText);
 					//alert(result); - [object Object],[object Object],[object Object],[object Object],[object Object] - Array 객체
 					
 					var html="<ol>";
 					//행(뉴스)을 열(값 - 뉴스제목과 언론사) 단위로 분리하여 Array 객체의 요소에 저장
 					for(i=0;i<result.length;i++) {
-						var title=result[i].title;
-						var publisher=result[i].publisher;
+						var title=result[i].title; //0번지,1번지 오브젝트 요소로 title이라는 객체의 속성명을 가져다가 저장 
+						var publisher=result[i].publisher; //위와 동일
 						html+="<li>"+title+"["+publisher+"]</li>";
 					}
 					html+="</ol>";
