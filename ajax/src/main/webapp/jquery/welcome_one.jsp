@@ -15,7 +15,7 @@
 	<hr>
 	<label for="name">이름 : </label>
 	<input type="text" id="name">
-	<button type="button" id="btn">입력완료</button>
+	<button type="button" id="btn">입력완료</button> <%-- welcome_one을 버튼 누르면 비동기식으로 요청 --%>
 	<hr>
 	<div id="message"></div>
 	
@@ -38,10 +38,10 @@
 		
 		
 		
-		$.ajax({
+		$.ajax({ $ : jQuery 의 ajax 메소드 호출 -> object 객체 전달, 속성과 속성값 설정 
 			type: "post",//요청방식 설정 - 생략된 경우 GET 방식으로 요청
 			url: "welcome_two.jsp",//요청 웹프로그램의 URL 주소 설정
-			data: "name="+name,//요청 웹프로그램에게 전달할 값 설정
+			data: "name="+name,//요청 웹프로그램에게 전달할 값 설정 - name이라는 입력값 저장
 			dataType: "html",//응답결과에 대한 문서형식 - 요소값 : text, html, script, xml, json 등
 			
 				정상적인 응답결과를 제공받아 처리할 명령을 작성하는 함수 설정 - 상태코드 : 200

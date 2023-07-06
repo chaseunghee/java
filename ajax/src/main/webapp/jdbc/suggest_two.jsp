@@ -19,7 +19,7 @@
 <result>
 	<% if(suggestList!=null && !suggestList.isEmpty()) {//검색된 제시어 관련 정보가 있는 경우 %>
 	<code>success</code>
-	<data><![CDATA[
+	<data><![CDATA[ <%--CDATA 안에 있는건 무조건 값이 됨. json--%>
 		[
 		<% for(int i=0;i<suggestList.size();i++) { %>
 			<% if(i>0) { %>,<% } %>
