@@ -172,7 +172,7 @@
 			}
 		});
 */
-	/*[방법 - 2]  */
+	/*[방법 - 2] - 비권장 */
 	
 	//아이디 중복 검증에 대한 결과값을 저장하기 위한 전역변수 선언
 	$("#id").focus();
@@ -187,13 +187,13 @@
 		var idReg=/^[a-zA-Z]\w{5,19}$/g;
 		
 		if(id=="") {
-			$("#idNullMsg").show();
+			$("#idNullMsg").show(); //id 빈칸인 경우
 			validResult=false;
-		} else if(!idReg.test(id)) {
+		} else if(!idReg.test(id)) { //정규표현식 어긋난 경우 
 			$("#idValidMsg").show();
 			validResult=false;
 		} else {/* 형식에 맞는 아이디가 입력된 경우 - 중복 검사
-				- 문제점)비동기식 방식으로 아이디를 검사하는 웹프로그램을 요청한 경우 실행결과를 응답받기 전에 form 태그가 실행 가능 - 정상적인 아이디 중복 검사 실행 불가능
+				- 문제점)비동기식 방식으로 아이디를 검사하는 웹프로그램을 요청한 경우 실행결과를 응답받기 전에 form 태그가 실행 할수도 있기 때문에 - 정상적인 아이디 중복 검사 실행 불가능
 				- 해결법)아이디를 검사하는 웹프로그램을 동기식 방식으로 요청하여 실행결과를 응답받아 처리
 				*/
 			$.ajax({
@@ -204,7 +204,7 @@
 					async : 동기식 통신 또는 비동기식 통신을 구분하기 위한 속성
 					=> false : 동기식 통신, true : 비동기식 통신 - 기본
 				*/
-				async: false,
+				async: false , //문제점 해결 - 동기식으로 요청
 				dataType: "xml",
 				success: function(xmlDoc) {
 					var code=$(xmlDoc).find("code").text();

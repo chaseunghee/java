@@ -8,7 +8,7 @@
 <%
 	List<AjaxCommentDTO> ajaxCommentList=AjaxCommentDAO.getDAO().selectAjaxCommentList();
 %>
-<% if(ajaxCommentList.isEmpty()) {//검색된 댓글정보가 없는 경우 %>
+<% if(ajaxCommentList.isEmpty()) {//검색된 댓글정보가 없는 경우 - 이미 dao에서 list 객체가 만들어졌으므로 isEmpty사용하는 것이 맞음 null이 나올 수는 없음 %>
 {"code":"empty","message":"첫번째 댓글을 입력해 주세요."}
 <% } else {//검색된 댓글정보가 있는 경우 %>
 {

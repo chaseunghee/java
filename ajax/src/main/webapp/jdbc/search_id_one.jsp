@@ -32,7 +32,7 @@
 	
 	<script type="text/javascript">
 	$("#btn").click(function() {
-		var name=$("#name").val();
+		var name=$("#name").val(); //#name = id의 name
 		if(name=="") {
 			$("#result").html("이름을 입력해 주세요.");
 			$("#name").focus();

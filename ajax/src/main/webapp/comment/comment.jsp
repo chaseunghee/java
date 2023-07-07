@@ -144,10 +144,10 @@ h1 {
 	</div>
 	
 	<script type="text/javascript">
-	dispalyComment();
+	displayComment();
 	
 	//[comment_list.jsp] 문서를 AJAX 기능으로 요청하여 댓글목록을 JSON 데이타로 응답받아 태그에 출력하는 함수
-	function dispalyComment() {
+	function displayComment() {
 		$.ajax({
 			type: "get",
 			url: "comment_list.jsp",
@@ -335,7 +335,27 @@ h1 {
 		댓글삭제태그에서 [삭제] 태그를 클릭한 경우 호출되는 이벤트 처리 함수 등록
 		=> 입력태그의 입력값(댓글번호)을 반환받아 AJAX_COMMENT 테이블에 저장된 댓글정보를 삭제하는 [comment_remove.jsp] 문서를 AJAX 기능으로 요청하고 실행결과를 JSON 데이타로 응답받아 처리
 	*/
-	
+	$("#remove_btn").click(function() {
+		var num=$("#remove_num").val();
+
+		$.ajax({
+			type: "get",
+			url: "comment_remove.jsp",
+			data: {"num":num},
+			dataType: "json",
+			success: function(result) {
+				if(result.code=="success") {
+					init();
+					displayComment();
+				} else {
+					alert("댓글 삭제 실패");
+				}
+			},
+			error: function(xhr) {
+				alert("에러코드 = "+xhr.status);
+			}
+		});
+	});
 	
 	//댓글삭제태그에서 [취소] 태그를 클릭한 경우 호출되는 이벤트 처리 함수 등록
 	
