@@ -76,8 +76,11 @@ public class LoginModel implements Action{ //인터페이스 Action 상속(구�
 			actionForward.setForward(false);
 			actionForward.setPath(request.getContextPath()+"/loginform.do");
 		} catch (AuthFailException e) {
-			//인증 실패시 발생되는 예외에 대한 명령 작성
-			//Request Scope : 스레드가 이동된 웹프로그램(JSP)에서만 속성값을 객체로 반환받아 사용 가능
+			/*
+				인증 실패시 발생되는 예외에 대한 명령 작성
+				
+				Request Scope : 스레드가 이동된 웹프로그램(JSP)에서만 속성값을 객체로 반환받아 사용 가능
+			*/
 			request.setAttribute("message", e.getMessage());
 			request.setAttribute("userid", request.getParameter("userid"));
 			actionForward.setForward(true);

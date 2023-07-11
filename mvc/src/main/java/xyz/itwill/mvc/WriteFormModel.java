@@ -15,7 +15,7 @@ import xyz.itwill.dto.UserinfoDTO;
 	=> [user_write.jsp]로 포워드 이동하기 위한 정보가 저장된 ActionForward 객체 반환
 */
 
-public class writeformModel implements Action {
+public class WriteFormModel implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
