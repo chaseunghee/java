@@ -60,7 +60,7 @@ public class ControllerServlet extends HttpServlet {
 		actionMap.put("/error.do", new ErrorModel());
 	 */
 		
-		/* ★-3 대신 ●
+		/* ★-3 대신 ● (★은 PUT으로 추가내용을 다 적어줘야하기 때문 ●로 작성하면 Controller는 더이상 수정안해도 됨)
 			Properties 파일에 요청정보와 모델 클래스를 저장하고 Properties 파일을 읽어 Map 객체의 엔트리로 추가 - 유지보수의 효율성 증가
 			=> 컨트롤러를 변경하지 않고 Properties 파일만 변경하여 요청정보에 대한 모델 객체 관리
 			

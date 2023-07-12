@@ -3,6 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	//dto가 없으면 굳이 class를 만들 필요 없고 map으로 대체하면 됨
+	
 	//HashMap 객체(Map 객체)를 생성하여 저장
 	Map<String, String> carMap=new HashMap<String, String>();
 

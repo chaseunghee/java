@@ -47,7 +47,7 @@
 					<%=userinfo.getUserid() %>
 				</td>
 				<td width=200 align=center bgcolor="ffffff">
-					<a href="<%=request.getContextPath() %>/view.do?userid=<%=userinfo.getUserid() %>" class="user">
+					<a href="<%=request.getContextPath() %>/view.do?userid=<%=userinfo.getUserid() %>" class="user"> <%-- view.do 페이지로 userid라는 이름으로 userinfo에 userid를 받아 이동 --%>
 						<%=userinfo.getName() %>
 					</a>
 				</td>
