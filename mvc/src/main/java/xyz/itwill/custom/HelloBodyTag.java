@@ -31,7 +31,7 @@ public class HelloBodyTag extends TagSupport {
 			throw new JspException(e.getMessage());
 		}
 		
-		return EVAL_BODY_INCLUDE;
+		return EVAL_BODY_INCLUDE; //태그내용 포함
 	}
 	
 	@Override
