@@ -73,14 +73,4 @@ public class Student {
 			return "학번 = "+num+", 이름 = "+name+", 이메일 = "+email;
 		}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
