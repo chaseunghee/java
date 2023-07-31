@@ -1,0 +1,32 @@
+package xyz.itwill07.aop;
+
+import java.util.List;
+
+//[순서-3]
+
+/*
+	핵심관심모듈(Core Concern Module) : 핵심관심코드로 작성된 메소드로 선언된 클래스
+	=> 핵심관심코드 : 데이터 처리를 위한 필수적인 명령 
+*/
+public class HewonDAOImpl implements HewonDAO {//HewonDAO 인터페이스를 상속받은 HewonDAOImpl 클래스 생성
+	
+	//메소드 오버라이드 
+	@Override
+	public int insertHewon(Hewon hewon) {
+		System.out.println("*** HewonDAOImpl 클래스의 insertHewon(Hewon hewon) 메소드 호출 ***");
+		return 0;
+	}
+	
+	@Override
+	public Hewon selectHewon(int num) {
+		System.out.println("*** HewonDAOImpl 클래스의 selectHewon(int num) 메소드 호출 ***");
+		return null;
+	}
+	
+	@Override
+	public List<Hewon> selectHewonList() {
+		System.out.println("*** HewonDAOImpl 클래스의 selectHewonList() 메소드 호출 ***");
+		return null;
+	}
+	
+}

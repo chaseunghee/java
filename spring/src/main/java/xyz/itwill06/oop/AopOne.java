@@ -1,7 +1,10 @@
 package xyz.itwill06.oop;
 
-//핵심관심코드로 작성된 메소드가 선언된 클래스 - 핵심관심모듈
-// => 횡단관심코드가 삽입될 메소드를 인터페이스를 상속받아 작성
+/*	[순서-3]
+	
+	핵심관심코드로 작성된 메소드가 선언된 클래스 - 핵심관심모듈
+	=> 횡단관심코드가 삽입될 메소드를 인터페이스를 상속받아 작성
+*/
 public class AopOne implements Aop {
 	@Override
 	public void display1() {

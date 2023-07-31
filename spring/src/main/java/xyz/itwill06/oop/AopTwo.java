@@ -1,5 +1,6 @@
 package xyz.itwill06.oop;
 
+//[순서-3]
 public class AopTwo implements Aop {
 	@Override
 	public void display1() {

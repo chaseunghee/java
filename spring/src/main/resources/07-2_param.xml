@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 
+		=>[순서-2]JoinPointApp => [순서-3] 아래 코드 작성
+		핵심관심모듈의 클래스를 Spring Bean으로 등록
+	-->
+	<bean class="xyz.itwill07.aop.JoinPointBean" id="joinPointBean"/>
+	
+	<!-- 
+		=>[순서-5-1]JoingPointAdvice => [순서-6]아래 코드 작성 
+		핵심관심모듈의 클래스를 Spring Bean으로 등록
+	-->
+	<bean class="xyz.itwill07.aop.JoinPointAdvice" id="joinPointAdvice"/>
+	
+	<aop:config>
+		<aop:aspect ref="joinPointAdvice">
+			<aop:before method="beforeDisplay" pointcut="execution(* *(..))"/>
+			<!-- =>[순서8]JoinPointAdvice=>[순서-9] -->
+			<aop:after method="displayMessage" pointcut="execution(void))"/>	
+		</aop:aspect>
+	</aop:config>
+</beans>

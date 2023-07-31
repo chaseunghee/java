@@ -1,5 +1,5 @@
 package xyz.itwill06.oop;
-
+//[순서-2]
 public class AopApp {
 	public static void main(String[] args) {
 		//AopOne one=new AopOne();
