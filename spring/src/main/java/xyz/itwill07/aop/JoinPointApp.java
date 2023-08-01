@@ -16,7 +16,9 @@ public class JoinPointApp {
 		System.out.println("=============================================================");		
 		bean.remove(2000);
 		System.out.println("=============================================================");		
-		bean.calc(20, 10);
+		//bean.calc(20, 10);
+		//[순서-17] - IllagrumentException 에러 발생 
+		bean.calc(20, 0);
 		System.out.println("=============================================================");		
 		((ClassPathXmlApplicationContext)context).close();
 	}

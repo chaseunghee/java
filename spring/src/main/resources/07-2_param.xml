@@ -20,8 +20,22 @@
 	<aop:config>
 		<aop:aspect ref="joinPointAdvice">
 			<aop:before method="beforeDisplay" pointcut="execution(* *(..))"/>
-			<!-- =>[순서8]JoinPointAdvice=>[순서-9] -->
-			<aop:after method="displayMessage" pointcut="execution(void))"/>	
+			<!-- =>[순서-8]JoinPointAdvice=>[순서-9] 아래 코드-->
+			<aop:after method="displayMessage" pointcut="execution(void remove(int))"/>	
+			<!-- =>[순서-11]JoinPointAdvice=>[순서]-12 아래코드 pointcut
+				 =>[순서-14] 아래코드 returning
+				returning 속성 : 타겟메소드의 반환값(pointcut 속성값)을 전달받아 저장하기 위한 After Returning Advice Method의 매개변수 이름을 속성값으로 설정 
+			-->
+			<aop:after-returning method="displayName" 
+				pointcut="execution(java.lang.String getName())" returning="object"/>
+			<!-- [순서-16]아래코드 =>[순서-17]JoinPointApp 실행하면 예외 안떨어짐 강제적으로 예외 발생하기 위해 코드 작성
+				throwing 속성 : 타겟 메소드에서 발생된 예외를 전달받아 저장하기 위한 After Throwing Advice Method의 매개변수 이름을 속성값으로 설정
+				=>[순서-19] 아래코드 pointcut 매개변수 
+			-->
+			<aop:after-throwing method="exceptionHandle" 
+				pointcut="execution(void calc(int, int))" throwing="exception"/>
+			<!-- [순서-21] 아래코드 -->
+			<aop:around method="display" pointcut="execution(* modify(..))"/>			
 		</aop:aspect>
 	</aop:config>
 </beans>
