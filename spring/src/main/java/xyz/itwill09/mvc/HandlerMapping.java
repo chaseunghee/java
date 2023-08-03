@@ -22,6 +22,6 @@ public class HandlerMapping {
 	
 	//매개변수로 클라이언트의 요청정보를 전달받아 요청을 처리하기 위한 객체를 Map 객체에서 검색하여 반환하는 메소드
 	public Controller getController(String command) {
-		
+		return mappings.get(command);
 	}
 }

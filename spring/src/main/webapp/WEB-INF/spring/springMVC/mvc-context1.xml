@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- [순서-3] - springMVC폴더 생성 >> mvs-context1.xml (beans만)-->
+
+	<!-- [순서-11] - mvc-context1.xml 아래 코드 
+		Spring 프레임워크의 라이브러리의 Controller 인터페이스를 상속받아 작성한 요청 처리 클래스(Model)를 Spring Bean으로 등록 
+	-->
+	<bean class="xyz.itwill09.mvc.ListController" id="listController"/>
+	<bean class="xyz.itwill09.mvc.ViewController" id="viewController"/>
+	
+	<!-- [순서-12] - 아래 코드 
+		Spring 프레임워크 라이브러리의 SimpleurlHandlerMapping 클래스를 Spring Bean으로 등록
+		SimpleUrlHandlerMapping 객체 : 컨트롤러(DispatcherServlet)에게 클라이언트의 요청정보를 전달받아 요청 처리 클래스(Controller)의 객체(Spring Bean)을 반환하는 기능을 
+										제공하는 객체
+		=> mappings 필드에 Map 객체를 저장하고 요청정보와 Controller 객체를 저장된 엔트리 추가
+	-->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<!-- 
+				맵키(MapKey)에는 클라이언트의 요청정보(String)를 전달하고 맵값(MapValue)에는 요청 처리 클래스의 Spring Bean에 대한 식별자(beanName - String)을 전달하여 엔트리 생성  
+				=> map 엘리먼트 대신 props 엘리먼트를 사용하여 Map 객체를 생성하여 필드에 의존성 주입
+			-->
+			<props>
+				<prop key="/list.do">listController</prop>
+				<prop key="/view.do">viewController</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
