@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- [순서-38] - same_display.jsp 파일 생성 -->
+<!-- [순서-31]-display_redirect.jsp 파일 생성 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +8,8 @@
 <title>SPRING</title>
 </head>
 <body>
-	<h1>입력페이지</h1>
+	<h1>리다이렉트 이동</h1>
 	<hr>
-	<h2>좋아하는 음식-1 : ${food[0]}</h2>
-	<h2>좋아하는 음식-2 : ${food[1]}</h2>
+	<h2>${name }님, 환영합니다.</h2>
 </body>
 </html>

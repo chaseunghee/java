@@ -5,9 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SPRING</title>
 </head>
 <body>
-
+	<h1>입력페이지</h1>
+	<hr>
+	<form action="same_param" method="post">
+		좋아하는 음식-1 : <input type="text" name="food"><br>
+		좋아하는 음식-2 : <input type="text" name="food"><br>
+		<button type="submit">제출</button>
+	</form>
 </body>
 </html>

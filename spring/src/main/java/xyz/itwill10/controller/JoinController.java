@@ -125,7 +125,7 @@ public class JoinController {
 	
 		요청 처리 메소드의 매개변수를 Map 인터페이스로 작성하면 Front Controller는 Map(HashMap) 객체를 생성하여 매개변수에 저장되도록 제공
 		=> 페이지 요청시 모든 전달값을 Map 객체의 엔트리로 추가하여 매개변수에 Map 객체를 저장
-		=> Map 객체에는 전달값의 이름을 맵키(MapKey - String)로 제공받고 전달값은 맵값 (MapValue - String)로 제공받아 엔트리로 추가 
+		=> 매개변수에 저장되는 Map 객체에는 전달값의 이름을 맵키(MapKey - String)로 제공받고 전달값은 맵값 (MapValue - String)로 제공받아 엔트리로 추가 
 		=> 매개변수에 전달값이 저장된 Map 객체를 저장하기 위해서는 반드시 매개변수에 @RequestParam 어노테이션을 사용
 	*/
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
@@ -134,10 +134,7 @@ public class JoinController {
 		return "join_display";
 	}
 	
-	/* [순서-35] 
-		
-		똑같은 이름으로 전달된 값이 있을때 처리하는 방법
-	*/
+	//[순서-35] 
 	@RequestMapping(value="/sam_param", method=RequestMethod.GET)
 	public String input() {
 		return "same_form"; //=>[순서-36] - same_form.jsp 파일 생성
@@ -145,10 +142,11 @@ public class JoinController {
 	
 	/* [순서-37] - 매개변수를 만드는 데 배열로 만듦
 	
-		같은 이름으로 전달된 값이 있는 경우 배열을 저장할 수 있는 
+		같은 이름으로 전달된 값이 있는 경우 배열을 저장할 수 있는 매개변수를 작성하여 전달값을 문자열 배열로 제공받아 저장 
 	*/
 	@RequestMapping(value="/sam_param", method=RequestMethod.POST)
-	public String input(@RequestParam String[] food) {
+	public String input(@RequestParam String[] food, Model model) {
+		model.addAttribute("food", food);
 		return "same_display"; //=>[순서-38] - same_display.jsp 파일 생성
 	}
 }
