@@ -92,8 +92,10 @@ public class SessionController {
 	*/
 	@RequestMapping(value = "/hewon_update", method = RequestMethod.POST)
 	public String update(@ModelAttribute Hewon hewon, SessionStatus sessionStatus) { //hewon에는 id는 그대로 남아있다는 소리
- 		//SessionStatus.setComplete() : @SessionAtrributes 어노테이션에 의해 제공된 제한적인 Session
- 		//Scope 속성값을 제거하는 메소드
+ 		/*
+ 			SessionStatus.setComplete() : @SessionAtrributes 어노테이션에 의해 제공된 제한적인 Session Scope 속성값을 제거하는 메소드
+ 			=> 다른 요청 처리 메소드와 뷰에서 제한적인 Session Scope 속성값을 더 이상 사용하지 못하도록 설정 
+ 		*/
  		sessionStatus.setComplete();
 		return "hewon_result";
 	}
