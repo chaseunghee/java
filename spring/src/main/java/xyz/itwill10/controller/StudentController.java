@@ -54,6 +54,10 @@ import xyz.itwill10.service.StudentService;
 @RequiredArgsConstructor
 /* [순서-33]
 	
+	@RequestMapping 어노테이션을 클래스에 선언하면 Controller 클래스의 모든 요청 처리 메소드의 요청 URL 주소 앞부분에 공통적으로 포함될 URL 주소 제공
+	
+	value 속성 : 모든 요청 처리 메소드의 요청 URL 주소 앞부분에 삽입된 URL 주소를 속성값으로 설정
+	=> 다른 속성이 없는 경우 속성값만 설정 가능
 */
 @RequestMapping("/student")
 public class StudentController {
