@@ -24,6 +24,7 @@ public class PointUserServiceTest {
 	@Test
 	public void testAddPointUser() throws Exception {
 		PointUser user=PointUser.builder().id("abc123").name("홍길동").build();
+		//PointUser user=PointUser.builder().id("xyz789").name("임꺽정").build();
 		
 		PointUser addUser=pointUserService.addPointUser(user);
 		
