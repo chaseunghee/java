@@ -91,5 +91,5 @@ public class UserinfoController {
 			session.invalidate();
 			
 			return "redirect:/userinfo/login";
-		}
+		} 
 }
