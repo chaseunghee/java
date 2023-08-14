@@ -230,5 +230,13 @@ public class FileController {
 		model.addAttribute("fileBoardList", FileBoardService.getFileBoardList());
 		return "file/board_list"; //=> board_list.jsp 파일 생성 및 코드 작성
 	}
+	
+	/* [순서-51]
 
+		다운로드(Download) : 서버 디렉토리에 존재하는 파일을 클라이언트에게 전달하여 저장하
+	*/
+	@RequestMapping("/download")
+	public String fileBoardDownload(@RequestParam ind idx, Model model) {
+		//[순서-53]
+	}
 }

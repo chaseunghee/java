@@ -87,6 +87,11 @@
 		</beans:property>
 	</beans:bean>
  
+ 	<!-- 
+ 	-->
+ 	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+ 		<beans:property name="order" value="1"/>
+ 	</beans:bean>
 
 	<!-- 
 		component-scan : 스프링 컨테이너가 클래스에서 사용된 스프링 어노테이션을 검색하여 처리할 수 있는 패키지를 제공하는 엘리먼트
