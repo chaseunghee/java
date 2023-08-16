@@ -40,6 +40,7 @@ import xyz.itwill10.service.FileBoardService;
 public class FileController {
 	//[순서-31] - WebApplicationContext 객체(스프링 컨테이너)를 제공받아 필드에 의존성 주입
 	private final WebApplicationContext context; // - 필드에 적은 이유는 또 사용할 거기 때문
+	private FileBoardService fileBoardService;
 	
 	//[순서-18]
 	@RequestMapping(value="/upload1", method=RequestMethod.GET)
@@ -193,9 +194,10 @@ public class FileController {
 	
 	//[순서-47] 
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
-	public String fileBoardWrite(@ModelAttribute FileBoard fileBoard) throws IllegalStateException, IOException {
-		if(fileBoard.getMultipartFile().isEmpty()) {
-			return "file/board_write";//=>- board_write.jsp >> ${fileBoard.write}...
+	public String fileBoardWrite(@ModelAttribute FileBoard fileBoard
+			, @RequestParam MultipartFile multipartFile) throws IllegalStateException, IOException {
+		if(multipartFile.isEmpty()) {
+			return "file/board_write";//=> board_write.jsp >> ${fileBoard.write}...
 		}
 		
 		/*
@@ -205,7 +207,7 @@ public class FileController {
 		String uploadDirectory=context.getServletContext().getRealPath("/WEB-INF/upload");
 		
 		//사용자로부터 입력받아 전달받은 파일의 이름을 반환받아 Command 객체의 필드값 변경
-		String origin=fileBoard.getMultipartFile().getOriginalFilename();
+		String origin=multipartFile.getOriginalFilename();
 		fileBoard.setOrigin(origin);
 		
 		/*
@@ -217,10 +219,10 @@ public class FileController {
 		fileBoard.setUpload(upload);
 		
 		//파일 업로드 처리
-		fileBoard.getMultipartFile().transferTo(new File(uploadDirectory, upload));
+		multipartFile.transferTo(new File(uploadDirectory, upload));
 		
 		//FILEBOARD 테이블에 행 삽입
-		FileBoardService.addFileBoard(fileBoard);
+		fileBoardService.addFileBoard(fileBoard);
 		
 		return "redirect:/file/list"; 
 	}
@@ -247,7 +249,7 @@ public class FileController {
 	
 	@RequestMapping("/delete")
 	public String fileBoardDelete(@RequestParam int idx) {
-		FileBoard fileBoard=FileBoardService.getFileBoard(idx);
+		FileBoard fileBoard=fileBoardService.getFileBoard(idx);
 		String uploadDirectory=context.getServletContext().getRealPath("/WEB-INF/upload");
 		//서버 디렉토리에 저장된 업로드 파일을 삭제 처리
 		new File(uploadDirectory, fileBoard.getUpload()).delete();
@@ -267,7 +269,7 @@ public class FileController {
 	@RequestMapping("/download")
 	public String fileBoardDownload(@RequestParam int idx, Model model) {
 		//[순서-53]
-		FileBoard fileBoard=FileBoardService.getFileBoard(idx);
+		FileBoard fileBoard=fileBoardService.getFileBoard(idx);
 		
 		//Model 객체를 이용하여 실행될 프로그램(Spring Bean)에서 사용될 객체를 속성값으로 저장하여 제공
 		model.addAttribute("uploadDirectory", context.getServletContext().getRealPath("/WEB-INF/upload"));
