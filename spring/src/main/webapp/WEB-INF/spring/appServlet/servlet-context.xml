@@ -218,4 +218,9 @@
 		<beans:property name="defaultEncoding" value="utf-8"/>
 	</beans:bean>
 	
+	<!-- 
+		파일 다운로드 기능을 제공하는 클래스를 Spring Bean으로 등록
+		=> Spring Bean의 식별자(beanName)을 반드시 요청 처리 메소드의 반환값과 같도록 작성
+	-->
+	<beans:bean class="xyz.itwill10.util.FileDownload" id="fileDownload"/>	
 </beans:beans>
