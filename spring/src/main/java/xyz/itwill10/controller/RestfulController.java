@@ -136,4 +136,4 @@ public class RestfulController {
 		public String board() {
 			return "rest/board"; //=>[순서-15] - board.jsp 파일 생성 및 코드 작성
 		}
-}
+}	
